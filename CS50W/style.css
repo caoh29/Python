@@ -5,6 +5,10 @@ h1 {
     border: 5px solid orange;
 }
 
+table {
+    border: 3px solid red;
+}
+
 div {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 30px;
