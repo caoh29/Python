@@ -1,8 +1,8 @@
 h1 {
-    color: orange;
+    color: blue;
     text-align: center;
     font-weight: bold;
-    border: 5px solid blue;
+    border: 5px solid orange;
 }
 
 div {
