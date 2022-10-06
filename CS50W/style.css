@@ -30,7 +30,7 @@ div {
     }
 }
 
-body {
+head {
     display: flex;
     flex-wrap: wrap;
 }
