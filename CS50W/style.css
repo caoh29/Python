@@ -29,3 +29,8 @@ div {
         background-color: red;
     }
 }
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
