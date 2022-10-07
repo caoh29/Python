@@ -4,11 +4,12 @@ class Flight():
         self.passengers = []
 
     def add_passanger(self, name):
-        if self.open_seats > 0:
-            self.passengers.append(name)
-            return True
-        else:
+        if not self.open_seats():
             return False
+        self.passengers.append(name)
+        return True
+        
+            
 
     def open_seats(self):
         return self.capacity - len(self.passengers)
@@ -21,6 +22,6 @@ people = ["Paula", "Camilo", "Chloe", "Liz", "Larry"]
 for i in people:
     checkList = flight.add_passanger(i)
     if checkList:
-        print("El pasajero fue asignado al vuelo")
+        print(f"El pasajero {i} fue asignado al vuelo")
     else:
-        print("No hay asientos")
+        print(f"No hay asiento para {i}")
