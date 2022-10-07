@@ -1,8 +1,26 @@
-class Point():
-    def __init__(self, coordinate1, coordinate2):
-        self.x = coordinate1
-        self.y = coordinate2
+class Flight():
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.passengers = []
 
-p = Point(2,8)
-print(p.x)
-print(p.y)
+    def add_passanger(self, name):
+        if self.open_seats > 0:
+            self.passengers.append(name)
+            return True
+        else:
+            return False
+
+    def open_seats(self):
+        return self.capacity - len(self.passengers)
+
+
+flight = Flight(4)
+
+people = ["Paula", "Camilo", "Chloe", "Liz", "Larry"]
+
+for i in people:
+    checkList = flight.add_passanger(i)
+    if checkList:
+        print("El pasajero fue asignado al vuelo")
+    else:
+        print("No hay asientos")
