@@ -111,3 +111,15 @@ input[type=submit]:hover {
 .first_row{
     text-align: center;
 }
+
+.second_row a {
+    color: black;
+    padding: 10px;
+    margin: 20px;
+    
+}
+.third_row a {
+    color: black;
+    padding: 10px;
+    margin: 20px;
+}
