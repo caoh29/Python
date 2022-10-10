@@ -105,11 +105,11 @@ input[type=submit]:hover {
     font-size: 15px;
     padding: 15px;
     background-color: #dadce0;
-    color: #202124;
 }
 
 .first_row{
     text-align: center;
+    border:rgba(0, 0, 0, 0.8)
 }
 
 .second_row a {
