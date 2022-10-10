@@ -17,30 +17,40 @@ a{
 }
 
 .top-right{
-    width: 250px;
+    width: auto;
     height: auto;
     display: flex;
-    list-style: none;
     justify-content: center;
-    height: 50px;
+    margin-top: 10px;
 
 }
 
 .top-right a{
     color: black;
     padding: 10px;
-    text-decoration: none;
-
 }
 
 .links{
     margin-left: auto;
+    text-align: center;
 }
 
+.imagen_cuadrado_puntos{
+    padding: 0px;
+    height: 20px;
+    width: 20px;
+}
 
-.mid_bottom{
-    margin-top: 150px;
-    text-align: center;
+.login_button{
+    border-width: 0px;
+    border-radius: 10px;
+    width: 30px;
+    background-color: rgb(0, 123, 255);
+    color: white !important;
+}
+
+.login_button:hover {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
 }
 
 .google_image{
@@ -51,28 +61,9 @@ a{
     text-align: center;
 }
 
-
 .center{
     margin-top: 10px;
     text-align: center;
-}
-
-.bottom{
-    margin-top: 150px;
-    text-align: center;
-    font-family: arial,sans-serif;
-    font-size: 15px;
-    padding: 15px;
-    color: #70757a;
-}
-
-.first_row{
-    text-align: left;
-}
-.imagen_cuadrado_puntos{
-    padding: 0px;
-    height: 20px;
-    width: 20px;
 }
 
 .searching_bar{
@@ -82,24 +73,41 @@ a{
     padding: 13px 0;
 }
 
-
-
-
 input[type=text] {
-/* Give input text a lighter color */
-color: #464646;
-margin: 0 0 0 5px;
+    /* Give input text a lighter color */
+    color: #464646;
+    margin: 0 0 0 5px;
 }
 input[type=submit] {
-font-size: 14px;
-width: 185px;
-/* Remove border */
-border-width: 0px;
-border-radius: 15px;
-margin: 20px auto;
-display: inline;
+    font-size: 14px;
+    width: 185px;
+    /* Remove border */
+    border-width: 0px;
+    border-radius: 15px;
+    margin: 20px auto;
+
 }
 input[type=submit]:hover {
-/* Add box-shadow when hovering button (border adds space) */
-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+    /* Add box-shadow when hovering button (border adds space) */
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+}
+
+.mid_bottom{
+    margin-top: 150px;
+    text-align: center;
+}
+
+
+.bottom{
+    margin-top: 150px;
+    text-align: center;
+    font-family: arial,sans-serif;
+    font-size: 15px;
+    padding: 15px;
+    background-color: #dadce0;
+    color: #202124;
+}
+
+.first_row{
+    text-align: center;
 }
