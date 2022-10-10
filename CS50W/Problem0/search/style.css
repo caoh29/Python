@@ -96,7 +96,8 @@ width: 185px;
 /* Remove border */
 border-width: 0px;
 border-radius: 15px;
-margin: 20px;
+margin: 20px auto;
+display: inline;
 }
 input[type=submit]:hover {
 /* Add box-shadow when hovering button (border adds space) */
