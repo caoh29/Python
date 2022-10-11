@@ -1,0 +1,25 @@
+import math
+
+terreno = int(input("Defina el area en metros cuadrados del terreno: "))
+antenas_viejas = int(input("Cuantas antenas viejas hay instaladas?: "))
+cubierto = int(input("area cubierta: "))
+
+
+zona_con_cobertura = cubierto * antenas_viejas
+
+sin_cobertura = terreno - zona_con_cobertura
+
+while antenas_viejas <= 0:
+    print("El numero de antenas no puede ser cero o negativo")
+    antenas_viejas = int(input("Cuantas antenas viejas hay instaladas?: "))
+
+while terreno <= 0:
+    print("El numero del area del terreno no puede ser cero o negativo")
+    terreno = int(input("Defina el area en metros cuadrados del terreno: "))
+
+while cubierto <= 0:
+    print("El numero del area cubierta no puede ser cero o negativo")
+    cubierto = int(input("area cubierta: "))
+
+if sin_cobertura <= 0:
+    print("El área sin cobertura es nula")

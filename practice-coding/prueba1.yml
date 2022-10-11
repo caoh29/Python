@@ -1,0 +1,34 @@
+title: Wizard's Choice
+author: Delight Games
+sections:
+  - id: intro
+    content:
+      - >
+        You are a young wizard seeking...
+        suddenly it craches and maket it easy to begin
+      - suddenly you smeel something 
+      
+    choices:
+      - description: Dive
+        id: dive
+      - description: Hide
+        id: hide
+      - description: Stop
+        id: stop
+        
+  - id: hide
+    content:
+      - >
+        When in doubt, hiding is a fine strategy.
+        And the foreste offers plenty of cover.
+      - >
+        Now inside the brush,
+        you can see green
+      - What do you do?
+      
+    choices:
+      - description: Fight globbings
+        id: fight
+        
+      - description: Run away
+        id: run
