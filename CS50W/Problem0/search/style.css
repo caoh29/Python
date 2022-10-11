@@ -68,6 +68,12 @@ a{
     width: 400px;
     display: flexbox;
     padding: 13px 0;
+    border-radius: 20px;
+    border-color: #464646;
+}
+
+.searching_bar:hover{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
 }
 
 input[type=text] {
