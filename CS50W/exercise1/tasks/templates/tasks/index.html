@@ -7,11 +7,13 @@
         <link href="{% static 'tasks/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <h1>Tareas de la vida</h1><br>
-        <ol>
-            {% for i in tasks %}
-                <li>{{i}}</li>
-            {% endfor %}
-        </ol>
+        <h1>Tareas de la vida</h1>
+        <div>
+            <ol>
+                {% for i in tasks %}
+                    <li>{{i}}</li>
+                {% endfor %}
+            </ol>
+        </div>
     </body>
 </html>
