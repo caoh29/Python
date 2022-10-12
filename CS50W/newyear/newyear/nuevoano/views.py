@@ -4,5 +4,5 @@ import datetime
 def index(request):
     now = datetime.datetime.now()
     return render(request, "nuevoano/index.html", {
-        "newyear": now.month == 1 and now.day == 1
+        "nuevoano": now.month == 1 and now.day == 1
     })
