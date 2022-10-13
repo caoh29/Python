@@ -6,6 +6,8 @@
         <ol>
             {% for i in tasks %}
                 <li>{{i}}</li>
+            {% empty %}
+                <li>No Tasks</li>
             {% endfor %}
         </ol>
     </div>
