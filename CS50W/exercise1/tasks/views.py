@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import HttpResponse, render
 from django import forms
 from django.urls import is_valid_path
+from django.urls import reverse
 
 tasks = ["dormir", "estudiar", "trabajar", "reproducir", "morir"]
 
@@ -20,6 +22,7 @@ def add(request):
         if form.is_valid():
             task = form.cleaned_data["task"]
             tasks.append(task)
+            return HttpResponseRedirect(reverse("tasks:tasksofyourlife"))
         else:
             return render(request, "tasks/add.html",{
                 "form": form
