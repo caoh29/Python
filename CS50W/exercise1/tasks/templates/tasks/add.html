@@ -1,18 +1,11 @@
-{% load static %}
+{% extends "tasks/layout.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Tasks of your Life</title>
-        <link href="{% static 'tasks/styles.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Add Task</h1>
-        <div>
-            <form>
-                <input type="text" name="task">
-                <input type="submit">
-            </form>
-        </div>
-    </body>
-</html>
+{% block body %}
+    <h1>Add Task</h1>
+    <div>
+        <form>
+            <input type="text" name="task">
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

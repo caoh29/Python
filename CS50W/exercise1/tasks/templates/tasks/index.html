@@ -1,19 +1,12 @@
-{% load static %}
+{% extends "tasks/layout.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Tasks of your Life</title>
-        <link href="{% static 'tasks/styles.css' %}" rel="stylesheet">
-    </head>
-    <body>
-        <h1>Tareas de la vida</h1>
-        <div>
-            <ol>
-                {% for i in tasks %}
-                    <li>{{i}}</li>
-                {% endfor %}
-            </ol>
-        </div>
-    </body>
-</html>
+{% block body %}
+    <h1>Tareas de la vida</h1>
+    <div>
+        <ol>
+            {% for i in tasks %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock %}
