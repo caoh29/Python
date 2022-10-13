@@ -4,7 +4,7 @@ from django import forms
 from django.urls import is_valid_path
 from django.urls import reverse
 
-tasks = ["dormir", "estudiar", "trabajar", "reproducir", "morir"]
+
 
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -12,8 +12,11 @@ class NewTaskForm(forms.Form):
 
 # Create your views here.
 def tasksofyourlife(request):
+    if "tasks" not in request.session:
+        request.session["tasks"] = []
+
     return render(request, "tasks/index.html", {
-        "tasks": tasks
+        "tasks": request.session["tasks"]
     })
 
 def add(request):
