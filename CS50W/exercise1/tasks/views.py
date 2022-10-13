@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django import forms
+from django.urls import is_valid_path
 
 tasks = ["dormir", "estudiar", "trabajar", "reproducir", "morir"]
 
@@ -14,6 +15,13 @@ def tasksofyourlife(request):
     })
 
 def add(request):
-    return render(request, "tasks/add.html",{
-        "form": NewTaskForm()
-    })
+    if request.method == "POST":
+        form = NewTaskForm(request.POST)
+        if form.is_valid():
+            task = form.cleaned_data["task"]
+            tasks.append(task)
+        else:
+            return render(request, "tasks/add.html",{
+                "form": form
+            })
+    
