@@ -40,9 +40,12 @@ def adding_letters_to_list():
                 list.append(letter)
 
 list = []
-#keyword = 'pgl'
+keyword = 'Who'
 counting_lines()
 print(count)
+printing_what_wanted()
+"""
 adding_words_to_list()
 list.sort()
 print(list)
+"""
