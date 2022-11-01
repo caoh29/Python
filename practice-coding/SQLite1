@@ -1,8 +1,8 @@
 import sqlite3
 #Nos conectamos a la Base de Datos
-connection = sqlite3.connect('chamidb')
+connection = sqlite3.connect('emaildb.sqlite')
 
-#Creamos un cursor que nos servira como navegador dentro de la base de datos
+#Creamos un cursor que nos servira como navegador dentro  de la base de datos
 cursor = connection.cursor()
 
 #En caso de que la tabla ya exista, este comando impide que crashee el codigo :v
@@ -17,7 +17,7 @@ file_name = input('Enter file name: ')
 #Si la longitud del nombre del archivo es menor que uno, tome el siguiente nombre como predeterminado
 if (len(file_name) < 1):
     #Nombre de archivo igual a mbox-short.txt
-    file_name = 'mbox-short.txt'
+    file_name = 'emails.txt'
     
 #Creamos el stream del archivo llamado file_handler
 file_handler = open(file_name)
@@ -32,7 +32,7 @@ for line in file_handler:
     email = pieces[1]
     #usamos SQL por medio del metodo execute: Seleccionamos el parámetros "count" de la base de datos "Count" en donde el email vale ?, 
     #en donde ? es un placeholder que sera reemplazado por (email,), esto con el fin de evitar SQL INJECTION
-    cursor.execute('SELECT count FROM Count WHERE email = ?', (email,))
+    cursor.execute('SELECT count FROM Counts WHERE email = ?', (email,))
     #for the first item that match the SQL, grab the item and assign it to row
     row = cursor.fetchone()
     # Si la variable row esta vacia, haga lo siguiente:
