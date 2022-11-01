@@ -4,15 +4,19 @@ void main() {
   // se ordena de forma alfabetica
   ages.sort();
   
-  // 
+  // se crea un loop que suma cada elemento dentro de la lista
   var sum = 0;
-  for (var i = 0; i < ages.length; i++) 
+  int long = ages.length;
+  for (var i = 0; i < long; i++) 
   {
   sum = ages[i] + sum;
   }
-  var prom = (sum)/(ages.length);
-  int lenght = ages.length;
+
+  // Se crea la variable promedio 
+  var prom = (sum)/(long);
+  
+  // Se imprime el codigo
   print("La edad menor es: ${ages[0]}");
-  print("La edad mayor es: ${ages[lenght-1]}");
+  print("La edad mayor es: ${ages[long-1]}");
   print("La edad promedio es: $prom");
 }
