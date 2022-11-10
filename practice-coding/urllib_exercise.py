@@ -7,7 +7,7 @@ counts = {}
 
 #Por cada linea en file_handler, se hace:
 for line in file_handler:
-    #Se decodifica la linea ya que esta en estado binario y se omiten los espacios blancos entre ellas
+    #Se decodifica la linea ya que está en estado binario y se omiten los espacios blancos entre ellas
     line = line.decode().strip()
     #Se separa cada linea de acuerdo a los espacios vacios entre cada palabra y se asigna a la variable words la cual es un array
     words = line.split()
