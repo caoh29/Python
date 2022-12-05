@@ -46,4 +46,4 @@ c.setPuertas(5)
 c.setRuedas(4)
 c.setVelocidad(200)
 
-print(c.__class__,"Color:",c.getColor(),"Cilindrada:",c.getCilindrada(),"Puertas:",c.getPuertas(),"Ruedas:",c.getRuedas(),"Velocidad:",c.getVelocidad())
+print("Color:",c.getColor(),"Cilindrada:",c.getCilindrada(),"Puertas:",c.getPuertas(),"Ruedas:",c.getRuedas(),"Velocidad:",c.getVelocidad())
