@@ -10,7 +10,7 @@ if int(current_time[11:13]) >= 19:
     print("Time to go home!")
 else:
     remaining_hours = 18 - int(current_time[11:13])
-    remaining_minutes = 60 - int(current_time[14:16])
-    remaining_seconds = 60 - int(current_time[17:19])
+    remaining_minutes = 59 - int(current_time[14:16])
+    remaining_seconds = 59 - int(current_time[17:19])
     print(f"The current time is {current_time}")
     print(f"The remaining time to go home at 7 pm is {remaining_hours}:{remaining_minutes}:{remaining_seconds}")
