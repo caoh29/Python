@@ -1,7 +1,7 @@
 import sys
 
 try:
-    choice = int(input('Para leer un archivo, marque 1, para escribir un archivo, marque 2: '))
+    choice = int(input('Para leer un archivo, marque 1, para crear o sobreescribir un archivo, marque 2: '))
 except:
     sys.exit()
 
