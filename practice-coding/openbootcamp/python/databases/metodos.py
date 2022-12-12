@@ -22,14 +22,19 @@ def create_students_table():
 
 
 
-def insert_estudiante(estudiante):
+def insert_estudiante():
     connection = sqlite3.connect('universidad.db')
 
     cursor = connection.cursor()
 
     cursor.execute(
-        'INSERT INTO Estudiantes (matricula, nombre, apellido, promedio) VALUES (?, ?, ?, ?)', 
-        (estudiante.matricula, estudiante.nombre, estudiante.apellido, estudiante.promedio)
+        'INSERT INTO Estudiantes VALUES (:estudiante.matricula, :estudiante.nombre, :estudiante.apellido, :estudiante.promedio)', 
+        {
+            'estudiante.matricula': estudiante.matricula.get(),
+            'estudiante.nombre': estudiante.nombre.get(),
+            'estudiante.apellido': estudiante.apeliido.get(),
+            'estudiante.promedio': estudiante.promedio.get()
+        }
         )
 
     connection.commit()
