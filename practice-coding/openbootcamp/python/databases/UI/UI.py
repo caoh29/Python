@@ -1,6 +1,6 @@
 import tkinter
 import sys
-import metodos
+#import metodos
 
 def main():
     window = tkinter.Tk()
@@ -52,7 +52,7 @@ def main():
     #Creando Funcion submit() para la base de datos
     def submit():
         # Insertar los campos de tetxo en la base de datos
-        metodos.insert_estudiante()
+        #metodos.insert_estudiante()
 
         
         # Limpiar las cajas de texto
