@@ -1,4 +1,5 @@
 import sqlite3
+import insert_UI
 
 def create_students_table():
     connection = sqlite3.connect('universidad.db')
@@ -30,10 +31,10 @@ def insert_estudiante():
     cursor.execute(
         'INSERT INTO Estudiantes VALUES (:estudiante.matricula, :estudiante.nombre, :estudiante.apellido, :estudiante.promedio)', 
         {
-            'estudiante.matricula': estudiante.matricula.get(),
-            'estudiante.nombre': estudiante.nombre.get(),
-            'estudiante.apellido': estudiante.apeliido.get(),
-            'estudiante.promedio': estudiante.promedio.get()
+                'estudiante_matricula': insert_UI.id.get(),
+                'estudiante_nombre': insert_UI.nombre.get(),
+                'estudiante_apellido': insert_UI.apellido.get(),
+                'estudiante_promedio': insert_UI.promedio.get()
         }
         )
 

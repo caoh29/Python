@@ -6,15 +6,6 @@ from estudiantes import Estudiante
 
 def main():
 
-    
-
-    print('''
-    ¿Que tipo de operacion desea realizar?\n
-    Marque (1) para crear una tabla
-    Marque (2) para insertar un estudiante en la tabla
-    Marque (3) para eliminar un estudiante en la tabla
-    Marque (4) para editar el promedio de un estudiante en la tabla
-    Marque (5) para realizar una consulta en la tabla''')
 
     while True:
         try: 
