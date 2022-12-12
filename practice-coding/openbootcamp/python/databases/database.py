@@ -1,43 +1,175 @@
 import sqlite3
+import sys
+import metodos
 from estudiantes import Estudiante
 
-connection = sqlite3.connect('universidad.db')
 
-cursor = connection.cursor()
+def main():
 
-cursor.execute('DROP TABLE IF EXISTS Estudiantes')
+    
 
-cursor.execute(
-    ''' 
-    CREATE TABLE Estudiantes (
-        matricula TEXT,
-        nombre TEXT,
-        apellido TEXT,
-        promedio REAL
-    )
-    '''
-)
+    print('''
+    ¿Que tipo de operacion desea realizar?\n
+    Marque (1) para crear una tabla
+    Marque (2) para insertar un estudiante en la tabla
+    Marque (3) para eliminar un estudiante en la tabla
+    Marque (4) para editar el promedio de un estudiante en la tabla
+    Marque (5) para realizar una consulta en la tabla''')
 
-est_1 = Estudiante('0001', 'Camilo', 'Ordoñez', 4.0)
-est_2 = Estudiante('0002', 'Paula', 'Manrique', 4.2)
-est_3 = Estudiante('0003', 'Ricard', 'Ordoñez', 3.2)
-est_4 = Estudiante('0004', 'Edilma', 'Herrera', 4.0)
-est_5 = Estudiante('0005', 'Aura', 'Uribe', 3.5)
-
-cursor.execute(
-    'INSERT INTO Estudiantes VALUES (?, ?, ?, ?)', (est_1.matricula, est_1.nombre, est_1.apellido, est_1.promedio)
-    )
+    while True:
+        try: 
+            global operacion 
+            operacion = int(input())
+            break
+        except:
+            print('Ingrese un número entre (1,2,3,4)')
 
 
-connection.commit()
+
+    if operacion == 1:
+        metodos.create_students_table()
+        decision = input('Desea realizar otra operación? Escriba (Si o No): ')
+        decision = decision.lower()
+        if decision == 'si':
+            main()
+        else:
+            sys.exit()
 
 
-cursor.execute('SELECT * FROM Estudiantes')
-estudiantes = cursor.fetchall()
+
+    elif operacion == 2:
+        frase = str(input('Ingrese los siguientes parámetros separados por comas "(id, nombre, apellido, promedio)": ') + '\n')
+
+        lista=[]
+        word = ''
+        count = 0
+
+        for i in frase:
+
+            count += 1
+
+            if i == ' ':
+                continue
+
+            if i == ',' or count == (len(frase)):
+                lista.append(word)
+                word = ''
+                continue
+
+            word += i
+
+        stringToFloat = float(lista[3])
+        del lista[3]
+        lista.append(stringToFloat)
+        estudiante = Estudiante(lista[0], lista[1], lista[2], lista[3])
+        metodos.insert_estudiante(estudiante)
+
+        decision = input('Desea realizar otra operación? Escriba (Si o No): ')
+        decision = decision.lower()
+        if decision == 'si':
+            main()
+        else:
+            sys.exit()
 
 
-print(estudiantes)
+
+    elif operacion == 3:
+        
+        id = str(input('Ingrese el id del estudiante a eliminar: '))
+        metodos.delete_estudiante(id)
+        print('el estudiante fue eliminado exitosamente de la base de datos')
+           
+        decision = input('Desea realizar otra operación? Escriba (Si o No): ')
+        decision = decision.lower()
+        if decision == 'si':
+            main()
+        else:
+            sys.exit()
 
 
-cursor.close()
-connection.close()
+
+    elif operacion == 4:
+        frase = str(input('Ingrese los siguientes parámetros separados por comas "(id, promedio)": ') + '\n')
+
+        lista=[]
+        word = ''
+        count = 0
+
+        for i in frase:
+
+            count += 1
+
+            if i == ' ':
+                continue
+
+            if i == ',' or count == (len(frase)):
+                lista.append(word)
+                word = ''
+                continue
+
+            word += i
+
+        stringToFloat = float(lista[1])
+        del lista[1]
+        lista.append(stringToFloat)
+
+        metodos.update_promedio(lista[0], lista[1])
+
+        decision = input('Desea realizar otra operación? Escriba (Si o No): ')
+        decision = decision.lower()
+        if decision == 'si':
+            main()
+        else:
+            sys.exit()
+
+
+
+    else:
+        print('''
+        ¿Que tipo de consulta desea realizar?\n
+        Marque (1) para consultar por id
+        Marque (2) para consultar por nombre
+        Marque (3) para consultar por apellido
+        Marque (4) para consultar todos los estudiantes dentro de la base de datos''')
+
+        while True:
+            try:
+                global tipo_consulta
+                tipo_consulta = int(input())
+                break
+            except:
+                print('Ingrese un número entre (1,2,3,4)')
+
+        if tipo_consulta == 1:
+            id = str(input('Ingrese el id del estudiante a consultar: '))
+            datos = metodos.select_student_matricula(id)
+            print(datos)
+
+        elif tipo_consulta == 2:
+            nombre = str(input('Ingrese el nombre del estudiante a consultar: '))
+            datos = metodos.select_student_nombre(nombre)
+            print(datos)
+
+        elif tipo_consulta == 3:
+            apellido = str(input('Ingrese el apellido del estudiante a eliminar: '))
+            datos = metodos.select_student_apellido(apellido)
+            print(datos)
+
+        else:
+            datos = metodos.select_all()
+            print(datos)
+
+        decision = input('Desea realizar otra operación? Escriba (Si o No): ')
+        decision = decision.lower()
+        if decision == 'si':
+            main()
+        else:
+            sys.exit()
+
+      
+
+        
+
+if __name__ == '__main__':
+    main()
+    
