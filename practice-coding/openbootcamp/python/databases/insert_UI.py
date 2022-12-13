@@ -1,5 +1,4 @@
 import tkinter
-import sys
 import sqlite3
 
 
@@ -16,12 +15,12 @@ photo = tkinter.PhotoImage(file = ruta)
 window.iconphoto(False, photo)
 
 #Tamaño de la ventana
-dimension = '550x550'
+dimension = '500x550'
 window.geometry(dimension)
 
 #Encabezado
 encabezado = tkinter.Label(window, text='Insertar un nuevo estudiante en la Base de Datos', font=('Arial', 12),)
-encabezado.grid(row=0, column=1, padx=20, pady=20)
+encabezado.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
 # Creando Text Boxes
 db_title = tkinter.Entry(window, width=30)
@@ -53,13 +52,13 @@ id_label.grid(row=2, column=0, padx=10, pady=10)
 primer_nombre_label = tkinter.Label(window, text='Primer Nombre')
 primer_nombre_label.grid(row=3, column=0, padx=10, pady=10)
 
-segundo_nombre_label = tkinter.Label(window, text='Segundo Nombre')
+segundo_nombre_label = tkinter.Label(window, text='Segundo Nombre (Si NO tiene, ingrese "*")')
 segundo_nombre_label.grid(row=4, column=0, padx=10, pady=10) 
 
 primer_apellido_label = tkinter.Label(window, text='Primer Apellido')
 primer_apellido_label.grid(row=5, column=0, padx=10, pady=10)  
 
-segundo_apellido_label = tkinter.Label(window, text='Segundo Apellido')
+segundo_apellido_label = tkinter.Label(window, text='Segundo Apellido (Si NO tiene, ingrese "*")')
 segundo_apellido_label.grid(row=6, column=0, padx=10, pady=10)
 
 #Creando Funcion submit() para la base de datos
