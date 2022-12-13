@@ -79,13 +79,18 @@ def submit():
     cursor.close()
     connection.close()
 
-    #Advierte al usuario si la transaccion fue exitosa
-    advertencia = tkinter.Label(window, text='Se creó la base de datos', font=('Arial', 11),)
-    advertencia.grid(row=6, column=1, padx=20, pady=20)
     
     # Limpiar las cajas de texto
     db_title.delete(0, tkinter.END)
     cantdiad_notas.delete(0, tkinter.END)
+    
+
+    #Advierte al usuario si la transaccion fue exitosa
+    advertencia = tkinter.Label(window, text='Se creó la base de datos', font=('Arial', 11),)
+    advertencia.grid(row=6, column=1, padx=20, pady=20)
+
+    x = advertencia.destroy
+    advertencia.after(5000, x)
 
 
 

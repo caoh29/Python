@@ -1,6 +1,6 @@
 import tkinter
 import sqlite3
-
+from threading import Timer
 
 
 window = tkinter.Tk()
@@ -61,6 +61,7 @@ primer_apellido_label.grid(row=5, column=0, padx=10, pady=10)
 segundo_apellido_label = tkinter.Label(window, text='Segundo Apellido (Si NO tiene, ingrese "*")')
 segundo_apellido_label.grid(row=6, column=0, padx=10, pady=10)
 
+
 #Creando Funcion submit() para la base de datos
 def submit():
     db_name = str(db_title.get())
@@ -84,10 +85,6 @@ def submit():
     cursor.close()
     connection.close()
 
-
-    #Advierte al usuario si la transaccion fue exitosa
-    advertencia = tkinter.Label(window, text='Se creó el estudiante', font=('Arial', 11),)
-    advertencia.grid(row=8, column=1, padx=20, pady=20)
     
     # Limpiar las cajas de texto
     db_title.delete(0, tkinter.END)
@@ -96,6 +93,17 @@ def submit():
     segundo_nombre.delete(0, tkinter.END)
     primer_apellido.delete(0, tkinter.END)
     segundo_apellido.delete(0, tkinter.END)
+
+    
+    #Advierte al usuario si la transaccion fue exitosa
+   
+    advertencia = tkinter.Label(window, text='Se creó el estudiante', font=('Arial', 11),)
+    advertencia.grid(row=8, column=1, padx=20, pady=20)
+
+    x = advertencia.destroy
+    advertencia.after(5000, x)
+    
+
 
 
 
