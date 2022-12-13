@@ -1,5 +1,4 @@
 import tkinter
-import sys
 import sqlite3
 
 
@@ -16,12 +15,12 @@ photo = tkinter.PhotoImage(file = ruta)
 window.iconphoto(False, photo)
 
 #Tamaño de la ventana
-dimension = '500x500'
+dimension = '450x550'
 window.geometry(dimension)
 
 #Encabezado
 encabezado = tkinter.Label(window, text='Crear una nueva base de datos', font=('Arial', 12),)
-encabezado.grid(row=0, column=1, padx=20, pady=20)
+encabezado.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
 # Creando Text Boxes
 db_title = tkinter.Entry(window, width=30)
