@@ -64,16 +64,173 @@ def main():
 
         cursor = connection.cursor()
 
-        cursor.execute(
-            f'SELECT * FROM {db_name} WHERE id = :estudiante_matricula OR primer_nombre = :estudiante_primerNombre OR segundo_nombre = :estudiante_segundoNombre OR primer_apellido = :estudiante_primerApellido OR segundo_apellido = :estudiante_segundoApellido', 
-            {
-                    'estudiante_matricula': id.get(),
-                    'estudiante_primerNombre': primer_nombre.get(),
-                    'estudiante_segundoNombre': segundo_nombre.get(),
-                    'estudiante_primerApellido': primer_apellido.get(),
-                    'estudiante_segundoApellido': segundo_apellido.get()
-            }
-            )
+        id_value = id.get()
+        primer_nombre_value = primer_nombre.get()
+        segundo_nombre_value = segundo_nombre.get()
+        primer_apellido_value = primer_apellido.get()
+        segundo_apellido_value = segundo_apellido.get()
+
+        #1. En caso de que todos los campos esten vacios
+        if (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value == '') and (primer_apellido_value == '') and (segundo_apellido_value == ''):
+            cursor.execute(f'SELECT * FROM {db_name}')
+        
+        #2. En caso de que id tenga algun valor
+        elif (id_value != ''):
+            cursor.execute(f'SELECT * FROM {db_name} WHERE id = :estudiante_matricula', {'estudiante_matricula': id_value})
+
+        #3. En caso de que ingrese PRIMER NOMBRE y SEGUNDO NOMBRE y PRIMER APELLIDO y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value != '') and (primer_apellido_value != '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND segundo_nombre = :estudiante_segundoNombre AND primer_apellido = :estudiante_primerApellido AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        #4. En caso de que ingrese PRIMER NOMBRE y PRIMER APELLIDO y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value == '') and (primer_apellido_value != '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND primer_apellido = :estudiante_primerApellido AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+        
+        #5. En caso de que ingrese PRIMER NOMBRE y SEGUNDO NOMBRE y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value != '') and (primer_apellido_value == '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND segundo_nombre = :estudiante_segundoNombre AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        #6. En caso de que ingrese PRIMER NOMBRE y SEGUNDO NOMBRE y PRIMER APELLIDO
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value != '') and (primer_apellido_value != '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND segundo_nombre = :estudiante_segundoNombre AND primer_apellido = :estudiante_primerApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value
+                }
+                )
+
+        #7. En caso de que ingrese SEGUNDO NOMBRE y PRIMER APELLIDO y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value != '') and (primer_apellido_value != '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE segundo_nombre = :estudiante_segundoNombre AND primer_apellido = :estudiante_primerApellido AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        #8. En caso de que ingrese PRIMER NOMBRE y SEGUNDO NOMBRE 
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value != '') and (primer_apellido_value == '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND segundo_nombre = :estudiante_segundoNombre', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_segundoNombre': segundo_nombre_value
+                }
+                )
+        
+        #9. En caso de que ingrese PRIMER NOMBRE y PRIMER APELLIDO 
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value == '') and (primer_apellido_value != '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND primer_apellido = :estudiante_primerApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value
+                }
+                )
+        
+        #10. En caso de que ingrese PRIMER NOMBRE y SEGUNDO APELLIDO 
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value == '') and (primer_apellido_value == '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        
+
+        #11. En caso de que ingrese SEGUNDO NOMBRE y PRIMER APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value != '') and (primer_apellido_value != '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE segundo_nombre = :estudiante_segundoNombre AND primer_apellido = :estudiante_primerApellido', 
+                {
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_primerApellido': primer_apellido_value
+                }
+                )
+
+        #12. En caso de que ingrese SEGUNDO NOMBRE y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value != '') and (primer_apellido_value == '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE segundo_nombre = :estudiante_segundoNombre AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_segundoNombre': segundo_nombre_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        #13. En caso de que ingrese PRIMER APELLIDO y SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value == '') and (primer_apellido_value != '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_apellido = :estudiante_primerApellido AND segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_primerApellido': primer_apellido_value,
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
+
+        #14. En caso de que ingrese PRIMER NOMBRE
+        elif (id_value == '') and (primer_nombre_value != '') and (segundo_nombre_value == '') and (primer_apellido_value == '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_nombre = :estudiante_primerNombre', 
+                {
+                    'estudiante_primerNombre': primer_nombre_value
+                }
+                )
+        
+        #15. En caso de que ingrese SEGUNDO NOMBRE
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value != '') and (primer_apellido_value == '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE segundo_nombre = :estudiante_segundoNombre', 
+                {
+                    'estudiante_segundoNombre': segundo_nombre_value
+                }
+                )
+
+        #16. En caso de que ingrese PRIMER APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value == '') and (primer_apellido_value != '') and (segundo_apellido_value == ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE primer_apellido = :estudiante_primerApellido', 
+                {
+                    'estudiante_primerApellido': primer_apellido_value
+                }
+                )
+
+        #17. En caso de que ingrese SEGUNDO APELLIDO
+        elif (id_value == '') and (primer_nombre_value == '') and (segundo_nombre_value == '') and (primer_apellido_value == '') and (segundo_apellido_value != ''):
+            cursor.execute(
+                f'SELECT * FROM {db_name} WHERE segundo_apellido = :estudiante_segundoApellido', 
+                {
+                    'estudiante_segundoApellido': segundo_apellido_value
+                }
+                )
 
         info =cursor.fetchall()
 
