@@ -2,6 +2,8 @@ import tkinter
 import insert_UI
 import query_UI
 import create_UI
+import delete_UI
+
 
 window = tkinter.Tk()
 
@@ -41,7 +43,7 @@ update_btn = tkinter.Button(window, text='Editar notas u observaciones en una ba
 update_btn.grid(row=4, column=0, columnspan=2, pady=10, padx=10)
 
 
-delete_btn = tkinter.Button(window, text='Eliminar en una base de datos', command='')
+delete_btn = tkinter.Button(window, text='Eliminar en una base de datos', command=delete_UI.main)
 delete_btn.grid(row=5, column=0, columnspan=2, pady=10, padx=10)
 
 
