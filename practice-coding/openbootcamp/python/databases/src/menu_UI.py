@@ -3,7 +3,7 @@ import insert_UI
 import query_UI
 import create_UI
 import delete_UI
-
+import update_UI
 
 window = tkinter.Tk()
 
@@ -20,8 +20,9 @@ window.iconphoto(False, photo)
 dimension = '300x350'
 window.geometry(dimension)
 
+
 #Encabezado
-encabezado = tkinter.Label(window, text='Menu', font=('Arial', 12),)
+encabezado = tkinter.Label(window, text='Menu', font=('Arial', 12))
 encabezado.grid(row=0, column=0, columnspan=2, padx=20, pady=20)
 
 
@@ -39,7 +40,7 @@ query_btn = tkinter.Button(window, text='Buscar en una base de datos', command=q
 query_btn.grid(row=3, column=0, columnspan=2, pady=10, padx=10)
 
 
-update_btn = tkinter.Button(window, text='Editar notas u observaciones en una base de datos', command='')
+update_btn = tkinter.Button(window, text='Editar notas u observaciones en una base de datos', command=update_UI.main)
 update_btn.grid(row=4, column=0, columnspan=2, pady=10, padx=10)
 
 
