@@ -12,7 +12,7 @@ titulo = 'Estudiantes'
 window.title(titulo)
 
 #Icono de la ventana
-ruta = 'assets/books.png'
+ruta = 'src/assets/books.png'
 photo = tkinter.PhotoImage(file = ruta)
 window.iconphoto(False, photo)
 

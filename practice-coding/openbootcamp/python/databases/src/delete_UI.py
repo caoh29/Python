@@ -11,7 +11,7 @@ def main():
     delete_window.title(titulo_delete)
 
     #Tamaño de la ventana
-    dimension = '500x450'
+    dimension = '450x350'
     delete_window.geometry(dimension)
 
     #Encabezado
