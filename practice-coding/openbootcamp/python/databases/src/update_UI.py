@@ -80,6 +80,10 @@ def main():
                     error.after(3000, error.destroy)
 
 
+            cursor.execute(f'SELECT SUM(nota) FROM {db_name}')
+            x = cursor.fetchall()
+            #cursor.execute(f'UPDATE {db_name} SET promedio = {} WHERE id = {id_value}')
+
             connection.commit()
             cursor.close()
             connection.close()
