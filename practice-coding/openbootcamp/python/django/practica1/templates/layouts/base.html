@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block styles %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% include 'layouts/partials/menu.html' %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <img src="{% static 'img/masaje.jpg' %}" alt="masaje" width="200" height="200">
+    <br>
+    <footer>
+        {% include 'layouts/partials/footer.html' %}
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
