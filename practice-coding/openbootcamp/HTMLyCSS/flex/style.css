@@ -1,0 +1,28 @@
+.flex{
+    background-color: darksalmon;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.content1{
+    background-color: aliceblue;
+    height: 100px;
+    width: 100px;
+    border: 3px solid blue;
+}
+
+.content2{
+    background-color: aliceblue;
+    height: 100px;
+    width: 100px;
+    border: 3px solid green;
+}
+
+.content3{
+    background-color: aliceblue;
+    height: 100px;
+    width: 100px;
+    border: 3px solid red;
+}
