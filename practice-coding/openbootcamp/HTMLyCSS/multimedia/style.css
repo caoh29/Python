@@ -1,0 +1,14 @@
+video{
+    width: 500px;
+    height: 500px;
+}
+
+.principal{
+    width: 100vw;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.principal:hover{
+    opacity: 1;
+}
