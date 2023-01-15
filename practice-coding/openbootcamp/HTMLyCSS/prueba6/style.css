@@ -3,3 +3,11 @@ button:hover{
     background-color: green;
     content: "¡Hecho!";
 }
+
+button::before{
+    content: "Pasa por encima";
+}
+
+button:hover::before{
+    content: "¡Hecho!";
+}
