@@ -1,0 +1,31 @@
+body{
+    padding: 20px;
+    margin: 0;
+}
+
+.test1{
+    margin: 20px;
+    border: 3px solid green;
+    padding: 10px;
+    width: 100%;
+}
+
+.test2{
+    margin: 20px;
+    border: 3px solid purple;
+    padding: 10px;
+    width: 50%;
+}
+
+.px{
+    background-color: red;
+    width: 200px;
+}
+.view{
+    background-color: yellow;
+    width: 50vw;
+}
+.porcentaje{
+    background-color: blue;
+    width: 50%;
+}
