@@ -1,0 +1,26 @@
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.btn-modern{
+    width: 100px;
+    height: 100px;
+    font-size: large;
+    font-weight: 600;
+    border-top: none;
+    border-left: none;
+    transition: box-shadow 0.4s;
+}
+
+.btn-modern:hover{
+    transform: translateY(-5px);
+    background-color: aqua;
+    color: brown;
+    transition: all 0.4s;
+    box-shadow: 0 0 15px purple; 
+}
