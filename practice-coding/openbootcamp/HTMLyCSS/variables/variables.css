@@ -1,0 +1,18 @@
+:root{
+    --color-principal: aquamarine;
+    --ancho-principal: 350px;
+}
+
+.title{
+    color: var(--color-principal);
+}
+
+.footer{
+    color: var(--color-principal);
+}
+
+.container{
+    background-color: lightcoral;
+    padding: 1rem;
+    max-width: var(--ancho-principal);
+}

@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    background-color: aquamarine;
+    gap: 1rem;
+    padding: 0.5rem;
+    min-height: 5rem;
+    /* Eje principal */
+    justify-content: space-around;
+    /* Eje secundario */
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+.item{
+    padding: 0.25rem;
+    background-color: darksalmon;
+    width: 4rem;
+}
+
+.item3{
+    align-self: stretch;
+}

@@ -1,0 +1,13 @@
+.container{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+}
+
+.item{
+    background-color: salmon;
+    padding: 0.25rem;
+    color: white;
+    font-size: 2rem;
+    border: solid black;
+}
