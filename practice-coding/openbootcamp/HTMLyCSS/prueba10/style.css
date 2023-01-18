@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    border: solid green;
+}
+
+.left-bar{
+    display: grid;
+    background-color: antiquewhite;
+    gap: 1rem;
+}
+
+.item{
+    background-color: salmon;
+    padding: 0.25rem;
+    color: white;
+    font-size: 2rem;
+    border: solid black;
+}
+
+.main{
+    background-color: aquamarine;
+    align-self: right;
+    justify-self: center;
+
+}
