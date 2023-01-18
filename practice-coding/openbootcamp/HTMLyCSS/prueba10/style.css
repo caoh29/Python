@@ -4,7 +4,8 @@
 }
 
 .left-bar{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     background-color: antiquewhite;
     gap: 1rem;
 }
@@ -18,8 +19,19 @@
 }
 
 .main{
-    background-color: aquamarine;
-    align-self: right;
-    justify-self: center;
+    background-color: cyan;
+    padding: 15px;
+    flex-grow: 1;
+    font-size: 2rem;
 
+}
+
+@media (max-width: 640px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .left-bar {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }
